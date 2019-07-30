@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Barebone\Barebone.csproj" />
+    <ProjectReference Include="..\Employees.Data.Abstractions\Employees.Data.Abstractions.csproj" />
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\Reimburses.Data.Abstractions\Reimburses.Data.Abstractions.csproj" />
+    <ProjectReference Include="..\Reimburses.Data.Entities\Reimburses.Data.Entities.csproj" />
+    <ProjectReference Include="..\Reimburses.Data.EntityFramework.SqlServer\Reimburses.Data.EntityFramework.SqlServer.csproj" />
+  </ItemGroup>
+
+</Project>

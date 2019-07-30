@@ -1,0 +1,13 @@
+﻿@model Employees.ViewModels.Employee.CreateViewModel
+
+<form class="master-detail-view__form form" id="form" method="post">
+    <div class="form__field field">
+        <label asp-for="FirstName" class="field__label label"></label>
+        <input asp-for="FirstName" class="field__input input" type="text" />
+    </div>
+
+    <div class="form__buttons buttons">
+        <button class="buttons__button button" type="submit">Save</button>
+        <a class="buttons__button button" href="/employee">Cancel</a>
+    </div>
+</form>

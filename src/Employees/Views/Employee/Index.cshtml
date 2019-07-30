@@ -1,0 +1,21 @@
+﻿@model Employees.ViewModels.Employee.EmpIndexViewModel
+
+<h2>Employee</h2>
+
+<div class="button-groups actions">
+    @Html.ActionLink("Add New", "Create")
+</div>
+
+<table>
+    <thead>
+        <tr>Name</tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Employees)
+        {
+            <tr>
+                <td>@item.FirstName</td>
+            </tr>
+        }
+    </tbody>
+</table>

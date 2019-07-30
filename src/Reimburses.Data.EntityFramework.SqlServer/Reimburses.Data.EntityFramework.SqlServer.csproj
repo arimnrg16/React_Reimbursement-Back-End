@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Data.EntityFramework.SQLServer\Data.EntityFramework.SqlServer.csproj" />
+    <ProjectReference Include="..\Reimburses.Data.Abstractions\Reimburses.Data.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>
