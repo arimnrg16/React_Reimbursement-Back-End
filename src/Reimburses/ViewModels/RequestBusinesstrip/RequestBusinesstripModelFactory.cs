@@ -14,7 +14,8 @@ namespace Reimburses.ViewModels. RequestBusinesstrip
         {
             var requestBusinesstripRepo = storage.GetRepository<IRequestBusinesstripRepository>();
 
-            return new  RequestBusinesstripIndexViewModel(requestBusinesstripRepo.All(page, size));
-        }
+
+            return new RequestBusinesstripIndexViewModel(requestBusinesstripRepo.All(requestBusinesstripRepo.Query, page, size));
+             }
     }
 }

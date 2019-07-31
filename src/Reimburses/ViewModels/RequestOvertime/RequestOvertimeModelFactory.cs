@@ -14,7 +14,8 @@ namespace Reimburses.ViewModels. RequestOvertime
         {
             var  requestOvertimeRepo = storage.GetRepository<IRequestOvertimeRepository>();
 
-            return new  RequestOvertimeIndexViewModel( requestOvertimeRepo.All(page, size));
+            return new RequestOvertimeIndexViewModel(requestOvertimeRepo.All(requestOvertimeRepo.Query, page, size));
+
         }
     }
 }

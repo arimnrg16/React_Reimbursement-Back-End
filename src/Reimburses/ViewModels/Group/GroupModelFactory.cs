@@ -14,7 +14,8 @@ namespace Reimburses.ViewModels.Group
         {
             var groupRepo = storage.GetRepository<IGroupRepository>();
 
-            return new GroupIndexViewModel(groupRepo.All( page, size));
+
+            return new GroupIndexViewModel(groupRepo.All(groupRepo.Query, page, size));
 
         }
     }

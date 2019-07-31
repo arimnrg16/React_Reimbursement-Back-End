@@ -14,7 +14,7 @@ namespace Employees.ViewModels.Employee
         {
             var employeeRepo = storage.GetRepository<IEmployeeRepository>();
 
-            return new EmpIndexViewModel(employeeRepo.All(page, size));
+            return new EmpIndexViewModel(employeeRepo.All(employeeRepo.Query, page, size));
         }
     }
 }

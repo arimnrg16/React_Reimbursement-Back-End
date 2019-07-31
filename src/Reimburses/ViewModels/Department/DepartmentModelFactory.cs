@@ -14,8 +14,9 @@ namespace Reimburses.ViewModels.Department
         {
             var departmentRepo = storage.GetRepository<IDepartmentRepository>();
 
+            return new DepartmentIndexViewModel(departmentRepo.All(departmentRepo.Query, page, size));
 
-            return new DepartmentIndexViewModel(departmentRepo.All( page, size));
+
         }
     }
 }

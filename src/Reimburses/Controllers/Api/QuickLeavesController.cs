@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
+using Employees.Data.Abstractions;
 
 namespace Reimburses.Controllers.Api
 {
@@ -33,6 +34,37 @@ namespace Reimburses.Controllers.Api
                 totalPage = ((int)count / size) + 1
             });
         }
+
+
+
+        //Add
+        [HttpGet("sample-get-leave-index")]
+        public IActionResult GetLeaveIndex([FromQuery] int page = 0, [FromQuery] int size = 25)
+        {
+            var quickLeaveRepository = Storage.GetRepository<IQuickLeaveRepository>();
+            var quickLeaveQuery = quickLeaveRepository.Query;
+            var quickLeaveData = quickLeaveRepository.All(quickLeaveQuery, page, size);
+            var userIds = quickLeaveData.Select(s => s.EmployeId).ToList();
+
+            var employeeRepository = Storage.GetRepository<IEmployeeRepository>();
+            var users = employeeRepository.All(employeeRepository.Query.Where(w => userIds.Contains(w.Id)), 0, int.MaxValue);
+
+            var result = new List<QuickLeaveDto>();
+            foreach (var quickLeaveDatum in quickLeaveData)
+            {
+                var user = users.FirstOrDefault(f => f.Id.Equals(quickLeaveDatum.EmployeId));
+
+                result.Add(new QuickLeaveDto(quickLeaveDatum)
+                {
+                    EmployeeName = user?.FirstName
+                });
+            }
+
+            return Ok(result);
+        }
+
+
+
 
         [HttpPost]
         public IActionResult Post(QuickLeaveCreateViewModel model)

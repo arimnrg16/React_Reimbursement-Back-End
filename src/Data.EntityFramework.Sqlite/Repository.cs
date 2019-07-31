@@ -10,9 +10,16 @@ namespace Data.EntityFramework.Sqlite
 {
     public abstract class Repository<TEntity> : RepositoryBase<TEntity>, IRepository<TEntity> where TEntity : Entity
     {
+        public IQueryable<TEntity> Query => throw new NotImplementedException();
+
         public virtual IEnumerable<TEntity> All(int page = 0, int size = 25)
         {
             return this.dbSet.OrderByDescending(e => e.Created).Skip(page * size).Take(size);
+        }
+
+        public IEnumerable<TEntity> All(IQueryable<TEntity> query, int page = 0, int size = 25)
+        {
+            throw new NotImplementedException();
         }
 
         public virtual void Create(TEntity entity, string username)

@@ -14,7 +14,9 @@ namespace Reimburses.ViewModels. RequestMedical
         {
             var  requestMedicalRepo = storage.GetRepository<IRequestMedicalRepository>();
 
-            return new  RequestMedicalIndexViewModel( requestMedicalRepo.All(page, size));
+
+            return new RequestMedicalIndexViewModel(requestMedicalRepo.All(requestMedicalRepo.Query, page, size));
+
         }
     }
 }
